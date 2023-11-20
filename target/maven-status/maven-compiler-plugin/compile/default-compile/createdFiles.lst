@@ -1,0 +1,11 @@
+com/neostore/api/resource/SupplierResource.class
+com/neostore/api/repo/Repository.class
+com/neostore/api/service/ApiStatusService.class
+com/neostore/api/model/Supplier.class
+com/neostore/api/exception/ResourceNotFoundMapper.class
+com/neostore/api/exception/ResourceNotFoundException.class
+com/neostore/api/service/Service.class
+com/neostore/api/config/ApplicationConfig.class
+com/neostore/api/service/SupplierService.class
+com/neostore/api/resource/MainResource.class
+com/neostore/api/repo/SupplierRepository.class

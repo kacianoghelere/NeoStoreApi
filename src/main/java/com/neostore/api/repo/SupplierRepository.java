@@ -2,10 +2,7 @@ package com.neostore.api.repo;
 
 import java.util.List;
 import java.util.Optional;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import jakarta.enterprise.context.RequestScoped;
 
 import com.neostore.api.model.Supplier;
 
@@ -13,56 +10,48 @@ import com.neostore.api.model.Supplier;
  *
  * @author kaciano
  */
-public class SupplierRepository {
-
-    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("NeoStore");
-
-    private EntityManager em;
-
+@RequestScoped
+public class SupplierRepository extends Repository {
     public SupplierRepository() {
-        em = emf.createEntityManager();
+        super();
     }
 
     public Supplier save(Supplier supplier) {
-        em.getTransaction().begin();
-        em.persist(supplier);
-        em.getTransaction().commit();
+        this.em.getTransaction().begin();
+        this.em.persist(supplier);
+        this.em.getTransaction().commit();
 
         return supplier;
     }
 
     public Optional<Supplier> findById(Long id) {
-        em.getTransaction().begin();
+        this.em.getTransaction().begin();
 
-        Supplier supplier = em.find(Supplier.class, id);
+        Supplier supplier = this.em.find(Supplier.class, id);
 
-        em.getTransaction().commit();
+        this.em.getTransaction().commit();
 
         return supplier != null ? Optional.of(supplier) : Optional.empty();
     }
 
     @SuppressWarnings("unchecked")
     public List<Supplier> findAll() {
-        return em.createQuery("from Supplier").getResultList();
+        return this.em.createQuery("from Supplier").getResultList();
     }
 
     public Supplier update(Supplier supplier) {
-        em.getTransaction().begin();
+        this.em.getTransaction().begin();
 
-        supplier = em.merge(supplier);
+        supplier = this.em.merge(supplier);
 
-        em.getTransaction().commit();
+        this.em.getTransaction().commit();
 
         return supplier;
     }
 
     public void deleteById(Long id) {
-        em.getTransaction().begin();
-        em.remove(em.find(Supplier.class, id));
-        em.getTransaction().commit();
-    }
-
-    public void close() {
-        emf.close();
+        this.em.getTransaction().begin();
+        this.em.remove(this.em.find(Supplier.class, id));
+        this.em.getTransaction().commit();
     }
 }

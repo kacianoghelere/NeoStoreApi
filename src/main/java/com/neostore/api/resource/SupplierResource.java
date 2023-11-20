@@ -1,21 +1,19 @@
-package com.neostore.api.controller;
+package com.neostore.api.resource;
 
 import java.util.List;
 
-import javax.inject.Inject;
-import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
-
-import lombok.extern.slf4j.Slf4j;
+import jakarta.inject.Inject;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.ws.rs.DELETE;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
+import jakarta.ws.rs.core.MediaType;
 
 import com.neostore.api.exception.ResourceNotFoundException;
 import com.neostore.api.model.Supplier;
@@ -25,16 +23,11 @@ import com.neostore.api.service.SupplierService;
  *
  * @author kaciano
  */
-@Slf4j
 @Path("suppliers")
-public class SupplierController {
-
-    private SupplierService supplierService;
+public class SupplierResource {
 
     @Inject
-    public SupplierController(SupplierService supplierService) {
-        this.supplierService = supplierService;
-    }
+    private SupplierService supplierService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -42,8 +35,6 @@ public class SupplierController {
             @NotBlank(message = "Consumerkey is required")
             @QueryParam(value = "consumerKey") String consumerKey
     ) {
-        log.info("Consumer: {}", consumerKey);
-
         return supplierService.findAll();
     }
 
