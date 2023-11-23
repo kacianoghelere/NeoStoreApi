@@ -1,36 +1,49 @@
 package com.neostore.api.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
+import java.io.Serializable;
+import org.hibernate.validator.constraints.br.CNPJ;
+import org.json.JSONObject;
 
 /**
  *
  * @author kaciano
  */
 @Entity
-public class Supplier {
+public class Supplier implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Supplier name is required")
+    @NotBlank(message = "Nome não pode ser nulo")
     private String name;
 
-    @NotBlank(message = "Supplier description is required")
+    @Column(nullable=true)
     private String description;
 
-    @NotBlank(message = "Supplier email is required")
+    @NotBlank(message = "E-mail não pode ser nulo")
+    @Column(unique=true)
     private String email;
 
-    @NotBlank(message = "Supplier cnpj is required")
+    @NotBlank(message = "CNPJ não pode ser nulo")
+    @Column(unique=true)
+    @CNPJ(message = "Informe um cnpj válido")
     private String cnpj;
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -79,18 +92,13 @@ public class Supplier {
         }
 
         Supplier other = (Supplier) object;
-        
-        boolean areIdsNull = (this.id == null && other.id != null);
 
-        if (areIdsNull || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-
-        return true;
+        return !((this.id == null && other.id != null)
+                || (this.id != null && !this.id.equals(other.id)));
     }
 
     @Override
     public String toString() {
-        return "Supplier[ id=" + id + " ]";
+        return new JSONObject(this).toString();
     }
 }
