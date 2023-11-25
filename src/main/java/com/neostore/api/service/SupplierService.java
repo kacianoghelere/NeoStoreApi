@@ -13,14 +13,18 @@ import com.neostore.api.repo.SupplierRepository;
  * @author kaciano
  */
 @RequestScoped
-public class SupplierService implements Service<Supplier> {
+public class SupplierService implements CrudService<Supplier> {
 
     @Inject
     private SupplierRepository repository;
 
     @Override
-    public Supplier save(Supplier supplier) {
-        return repository.save(supplier);
+    public Optional<Supplier> create(Supplier supplier) {
+        Supplier newSupplier = repository.create(supplier);
+
+        return newSupplier != null
+                ? Optional.of(newSupplier)
+                : Optional.empty();
     }
 
     @Override

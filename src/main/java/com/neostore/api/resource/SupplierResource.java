@@ -1,16 +1,14 @@
 package com.neostore.api.resource;
 
-import com.neostore.api.exception.InvalidDataException;
+import com.neostore.api.exception.*;
+import com.neostore.api.model.Supplier;
+import com.neostore.api.service.SupplierService;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import java.util.List;
-
-import com.neostore.api.exception.ResourceNotFoundException;
-import com.neostore.api.model.Supplier;
-import com.neostore.api.service.SupplierService;
 
 /**
  *
@@ -40,13 +38,8 @@ public class SupplierResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
     public Supplier createSupplier(@Valid Supplier supplier) {
-        try {
-            supplierService.save(supplier);
-
-            return supplier;
-        } catch (Exception e) {
-            throw new InvalidDataException(e.getMessage(), e);
-        }
+        return supplierService.create(supplier)
+                .orElseThrow(() -> new InvalidDataException("supplier data is not acceptable"));
     }
 
     @PUT
@@ -55,13 +48,13 @@ public class SupplierResource {
     @Transactional
     public Supplier updateSupplier(
             @PathParam(value = "supplierId") Long supplierId,
-            @Valid Supplier newSupplier
+            @Valid Supplier supplier
     ) {
         return supplierService.findById(supplierId).map(oldSupplier -> {
-            oldSupplier.setName(newSupplier.getName());
-            oldSupplier.setDescription(newSupplier.getDescription());
-            oldSupplier.setEmail(newSupplier.getEmail());
-            oldSupplier.setCnpj(newSupplier.getCnpj());
+            oldSupplier.setName(supplier.getName());
+            oldSupplier.setDescription(supplier.getDescription());
+            oldSupplier.setEmail(supplier.getEmail());
+            oldSupplier.setCnpj(supplier.getCnpj());
 
             return supplierService.update(oldSupplier);
         }).orElseThrow(() -> new ResourceNotFoundException("supplierId " + supplierId + " not found"));

@@ -1,10 +1,11 @@
 package com.neostore.api.exception.mapper;
 
-import com.neostore.api.exception.ResourceNotFoundException;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.ExceptionMapper;
 import jakarta.ws.rs.ext.Provider;
+
+import com.neostore.api.exception.ResourceNotFoundException;
 
 /**
  *

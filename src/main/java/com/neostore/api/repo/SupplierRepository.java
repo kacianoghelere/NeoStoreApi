@@ -22,7 +22,7 @@ public class SupplierRepository {
         super();
     }
 
-    public Supplier save(Supplier supplier) {
+    public Supplier create(Supplier supplier) {
         em.persist(supplier);
 
         return supplier;
