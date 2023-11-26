@@ -86,17 +86,7 @@ public class SupplierTest {
 
         ConstraintViolation<Supplier> constraint = constraints.iterator().next();
 
-        assertEquals(
-                "com.neostore.api.model.Supplier",
-                constraint.getLeafBean().getClass().getName());
-
-        assertEquals(
-                "cnpj",
-                constraint.getPropertyPath().toString());
-
-        assertEquals(
-                "CNPJ não pode ser nulo",
-                constraint.getMessage());
+        validateConstraint(constraint, "cnpj", "CNPJ não pode ser nulo");
     }
 
     @Test()
@@ -112,17 +102,7 @@ public class SupplierTest {
 
         ConstraintViolation<Supplier> constraint = constraints.iterator().next();
 
-        assertEquals(
-                "com.neostore.api.model.Supplier",
-                constraint.getLeafBean().getClass().getName());
-
-        assertEquals(
-                "cnpj",
-                constraint.getPropertyPath().toString());
-
-        assertEquals(
-                "Informe um cnpj válido",
-                constraint.getMessage());
+        validateConstraint(constraint, "cnpj", "Informe um cnpj válido");
     }
 
     @Test()
@@ -138,17 +118,7 @@ public class SupplierTest {
 
         ConstraintViolation<Supplier> constraint = constraints.iterator().next();
 
-        assertEquals(
-                "com.neostore.api.model.Supplier",
-                constraint.getLeafBean().getClass().getName());
-
-        assertEquals(
-                "email",
-                constraint.getPropertyPath().toString());
-
-        assertEquals(
-                "E-mail não pode ser nulo",
-                constraint.getMessage());
+        validateConstraint(constraint, "email", "E-mail não pode ser nulo");
     }
 
     @Test()
@@ -164,16 +134,6 @@ public class SupplierTest {
 
         ConstraintViolation<Supplier> constraint = constraints.iterator().next();
 
-        assertEquals(
-                "com.neostore.api.model.Supplier",
-                constraint.getLeafBean().getClass().getName());
-
-        assertEquals(
-                "email",
-                constraint.getPropertyPath().toString());
-
-        assertEquals(
-                "Informe um e-mail válido",
-                constraint.getMessage());
+        validateConstraint(constraint, "email", "Informe um e-mail válido");
     }
 }
