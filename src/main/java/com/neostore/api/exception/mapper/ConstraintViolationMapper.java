@@ -28,14 +28,11 @@ public class ConstraintViolationMapper implements ExceptionMapper<ConstraintViol
         JsonArrayBuilder jsonArray = Json.createArrayBuilder();
 
         for (ConstraintViolation<?> constraint : constraintViolations) {
-            String className = constraint.getLeafBean().toString().split("@")[0];
-
             String message = constraint.getMessage();
 
-//            String propertyPath = constraint.getPropertyPath().toString().split("\\.")[2];
             JsonObject jsonError = Json.createObjectBuilder()
-                    .add("class", className)
-                    //                    .add("field", propertyPath)
+                    .add("class", constraint.getLeafBean().getClass().getName())
+                    .add("property", constraint.getPropertyPath().toString())
                     .add("violationMessage", message)
                     .build();
 

@@ -1,9 +1,11 @@
 package com.neostore.api.service;
 
+import com.neostore.api.dto.SupplierDto;
 import com.neostore.api.model.Supplier;
 import com.neostore.api.repo.SupplierRepository;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,14 +19,30 @@ public class SupplierService implements CrudService<Supplier> {
     @Inject
     private SupplierRepository repository;
 
+    public Supplier buildFromDto(SupplierDto data) {
+        Supplier supplier = new Supplier();
+
+        supplier.setName(data.getName());
+        supplier.setDescription(data.getDescription());
+        supplier.setEmail(data.getEmail());
+        supplier.setCnpj(data.getCnpj());
+
+        return supplier;
+    }
+
     @Override
     public Supplier create(Supplier supplier) {
         return repository.create(supplier);
-//        try {
-//            return repository.create(supplier);
-//        } catch (Exception e) {
-//            throw new WebApplicationException("teste de erro", Response.Status.FORBIDDEN);
-//        }
+    }
+
+    public List<Supplier> batchCreate(List<SupplierDto> suppliersData) {
+        List<Supplier> suppliers = new ArrayList<Supplier>();
+
+        suppliersData.forEach((data) -> {
+            suppliers.add(repository.create(buildFromDto(data)));
+        });
+
+        return suppliers;
     }
 
     @Override

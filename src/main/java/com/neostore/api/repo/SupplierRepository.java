@@ -1,12 +1,11 @@
 package com.neostore.api.repo;
 
-import java.util.List;
-import java.util.Optional;
+import com.neostore.api.model.Supplier;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-
-import com.neostore.api.model.Supplier;
+import java.util.List;
+import java.util.Optional;
 
 /**
  *

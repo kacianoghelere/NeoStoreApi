@@ -1,5 +1,6 @@
 package com.neostore.api.resource;
 
+import com.neostore.api.dto.SupplierDto;
 import com.neostore.api.exception.*;
 import com.neostore.api.model.Supplier;
 import com.neostore.api.service.SupplierService;
@@ -39,6 +40,15 @@ public class SupplierResource {
     @Transactional
     public Supplier createSupplier(Supplier supplier) {
         return supplierService.create(supplier);
+    }
+
+    @POST
+    @Path("/import")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Transactional
+    public List<Supplier> importSuppliers(List<SupplierDto> suppliersData) {
+        return supplierService.batchCreate(suppliersData);
     }
 
     @PUT

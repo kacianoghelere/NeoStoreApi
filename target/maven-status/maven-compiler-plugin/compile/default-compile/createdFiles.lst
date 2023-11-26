@@ -16,6 +16,7 @@ com/neostore/api/service/CrudService.class
 com/neostore/api/config/ApplicationConfig.class
 com/neostore/api/exception/InvalidDataException.class
 com/neostore/api/service/SupplierService.class
+com/neostore/api/util/SupplierUtil.class
 com/neostore/api/resource/MainResource.class
 com/neostore/api/repo/SupplierRepository.class
 com/neostore/api/exception/mapper/TransactionalExceptionMapper.class

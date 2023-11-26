@@ -1,6 +1,7 @@
 /home/kaciano/NetBeansProjects/NeoStoreApi/src/main/java/com/neostore/api/repo/SupplierRepository.java
 /home/kaciano/NetBeansProjects/NeoStoreApi/src/main/java/com/neostore/api/service/SupplierService.java
 /home/kaciano/NetBeansProjects/NeoStoreApi/src/main/java/com/neostore/api/resource/GreetingResource.java
+/home/kaciano/NetBeansProjects/NeoStoreApi/src/main/java/com/neostore/api/util/SupplierUtil.java
 /home/kaciano/NetBeansProjects/NeoStoreApi/src/main/java/com/neostore/api/exception/mapper/ResourceNotFoundMapper.java
 /home/kaciano/NetBeansProjects/NeoStoreApi/src/main/java/com/neostore/api/exception/mapper/ConstraintViolationMapper.java
 /home/kaciano/NetBeansProjects/NeoStoreApi/src/main/java/com/neostore/api/exception/mapper/InvalidDataMapper.java
