@@ -8,7 +8,7 @@ import jakarta.enterprise.context.ApplicationScoped;
  */
 @ApplicationScoped
 public class ApiStatusService {
-    
+
     public String getApiStatus() {
         return "Injected: API Online";
     }

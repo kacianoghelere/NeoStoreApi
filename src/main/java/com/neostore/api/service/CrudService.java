@@ -9,7 +9,7 @@ import java.util.Optional;
  */
 public interface CrudService<T> {
 
-    Optional<T> create(T object);
+    T create(T object);
 
     T update(T object);
 

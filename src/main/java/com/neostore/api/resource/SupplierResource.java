@@ -37,9 +37,8 @@ public class SupplierResource {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
-    public Supplier createSupplier(@Valid Supplier supplier) {
-        return supplierService.create(supplier)
-                .orElseThrow(() -> new InvalidDataException("supplier data is not acceptable"));
+    public Supplier createSupplier(Supplier supplier) {
+        return supplierService.create(supplier);
     }
 
     @PUT
@@ -64,7 +63,8 @@ public class SupplierResource {
     @Path("{supplierId}")
     @Produces(MediaType.TEXT_PLAIN)
     @Transactional
-    public String deleteSupplier(@PathParam(value = "supplierId") Long supplierId) {
+    public String deleteSupplier(@PathParam(value = "supplierId") Long supplierId
+    ) {
         return supplierService.findById(supplierId).map(p -> {
             supplierService.deleteById(supplierId);
 

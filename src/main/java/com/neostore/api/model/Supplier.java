@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import java.io.Serializable;
 import org.hibernate.validator.constraints.br.CNPJ;
@@ -26,15 +27,16 @@ public class Supplier implements Serializable {
     @NotBlank(message = "Nome não pode ser nulo")
     private String name;
 
-    @Column(nullable=true)
+    @Column(nullable = true)
     private String description;
 
     @NotBlank(message = "E-mail não pode ser nulo")
-    @Column(unique=true)
+    @Column(unique = true)
+    @Email(message = "Informe um e-mail válido")
     private String email;
 
     @NotBlank(message = "CNPJ não pode ser nulo")
-    @Column(unique=true)
+    @Column(unique = true)
     @CNPJ(message = "Informe um cnpj válido")
     private String cnpj;
 

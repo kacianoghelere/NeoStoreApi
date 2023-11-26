@@ -8,7 +8,7 @@ import jakarta.enterprise.context.ApplicationScoped;
  */
 @ApplicationScoped
 public class HelloWorldService {
-    
+
     public String getHelloWorld(String name) {
         return "Hello " + name;
     }

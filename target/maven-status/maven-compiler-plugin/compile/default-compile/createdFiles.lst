@@ -1,11 +1,14 @@
 com/neostore/api/resource/GreetingResource.class
+com/neostore/api/validation/SupplierValidator.class
 com/neostore/api/resource/SupplierResource.class
 com/neostore/api/filter/CorsFilter.class
 com/neostore/api/repo/Repository.class
 com/neostore/api/service/HelloWorldService.class
 com/neostore/api/service/ApiStatusService.class
+com/neostore/api/exception/mapper/ConstraintViolationMapper.class
 com/neostore/api/model/Supplier.class
 com/neostore/api/dto/SupplierDto.class
+com/neostore/api/exception/mapper/ServerExceptionMapper.class
 com/neostore/api/exception/ResourceNotFoundException.class
 com/neostore/api/exception/mapper/ResourceNotFoundMapper.class
 com/neostore/api/exception/mapper/InvalidDataMapper.class
@@ -15,3 +18,4 @@ com/neostore/api/exception/InvalidDataException.class
 com/neostore/api/service/SupplierService.class
 com/neostore/api/resource/MainResource.class
 com/neostore/api/repo/SupplierRepository.class
+com/neostore/api/exception/mapper/TransactionalExceptionMapper.class

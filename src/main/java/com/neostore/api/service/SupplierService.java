@@ -1,12 +1,11 @@
 package com.neostore.api.service;
 
-import java.util.List;
-import java.util.Optional;
-import jakarta.enterprise.context.RequestScoped;
-import jakarta.inject.Inject;
-
 import com.neostore.api.model.Supplier;
 import com.neostore.api.repo.SupplierRepository;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
+import java.util.List;
+import java.util.Optional;
 
 /**
  *
@@ -19,12 +18,13 @@ public class SupplierService implements CrudService<Supplier> {
     private SupplierRepository repository;
 
     @Override
-    public Optional<Supplier> create(Supplier supplier) {
-        Supplier newSupplier = repository.create(supplier);
-
-        return newSupplier != null
-                ? Optional.of(newSupplier)
-                : Optional.empty();
+    public Supplier create(Supplier supplier) {
+        return repository.create(supplier);
+//        try {
+//            return repository.create(supplier);
+//        } catch (Exception e) {
+//            throw new WebApplicationException("teste de erro", Response.Status.FORBIDDEN);
+//        }
     }
 
     @Override

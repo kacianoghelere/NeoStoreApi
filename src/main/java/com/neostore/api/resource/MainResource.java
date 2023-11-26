@@ -16,7 +16,7 @@ public class MainResource {
 
     @Inject
     ApiStatusService apiStatusService;
-    
+
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getProductList() {
