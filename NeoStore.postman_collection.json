@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "a8699acd-9416-42c4-b4b0-08594da392f2",
+		"name": "NeoStore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29859434"
+	},
+	"item": [
+		{
+			"name": "Create Supplier",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cnpj\": \"68556328000122\",\n    \"description\": \"blah\",\n    \"email\": \"testto2@test.com\",\n    \"name\": \"Teste top 2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/NeoStore/api/suppliers/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"NeoStore",
+						"api",
+						"suppliers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Supplier",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/NeoStore/api/suppliers/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"NeoStore",
+						"api",
+						"suppliers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Supplier",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/NeoStore/api/suppliers/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"NeoStore",
+						"api",
+						"suppliers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Import Suppliers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"cnpj\": \"01876442000169\",\n        \"description\": \"blah 32\",\n        \"email\": \"importtest32@test.com\",\n        \"name\": \"Import test 32\"\n    },\n    {\n        \"cnpj\": \"01876442000169\",\n        \"description\": \"blah 33\",\n        \"email\": \"importtest33@test.com\",\n        \"name\": \"Import test 33\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/NeoStore/api/suppliers/import",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"NeoStore",
+						"api",
+						"suppliers",
+						"import"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Suppliers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/NeoStore/api/suppliers/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"NeoStore",
+						"api",
+						"suppliers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Supplier",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cnpj\": \"68764413000186\",\n    \"description\": \"blah blah blah\",\n    \"email\": \"supertest@test.com\",\n    \"id\": 9,\n    \"name\": \"Super test 22\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/NeoStore/api/suppliers/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"NeoStore",
+						"api",
+						"suppliers",
+						"9"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

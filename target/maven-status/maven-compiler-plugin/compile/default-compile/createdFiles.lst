@@ -1,8 +1,6 @@
-com/neostore/api/resource/GreetingResource.class
 com/neostore/api/resource/SupplierResource.class
 com/neostore/api/filter/CorsFilter.class
 com/neostore/api/repo/Repository.class
-com/neostore/api/service/HelloWorldService.class
 com/neostore/api/service/ApiStatusService.class
 com/neostore/api/exception/mapper/ConstraintViolationMapper.class
 com/neostore/api/model/Supplier.class
