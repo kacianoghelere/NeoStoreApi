@@ -55,6 +55,24 @@ public class SupplierTest {
         assertTrue(constraints.isEmpty());
     }
 
+    void validateConstraint(
+            ConstraintViolation<Supplier> constraint,
+            String field,
+            String message
+    ) {
+        assertEquals(
+                "com.neostore.api.model.Supplier",
+                constraint.getLeafBean().getClass().getName());
+
+        assertEquals(
+                field,
+                constraint.getPropertyPath().toString());
+
+        assertEquals(
+                message,
+                constraint.getMessage());
+    }
+
     @Test()
     public void testEmptySupplierCnpj() {
         Supplier supplier = new Supplier();
@@ -104,6 +122,58 @@ public class SupplierTest {
 
         assertEquals(
                 "Informe um cnpj válido",
+                constraint.getMessage());
+    }
+
+    @Test()
+    public void testEmptySupplierEmail() {
+        Supplier supplier = new Supplier();
+        supplier.setName("Example Supplier");
+        supplier.setEmail("");
+        supplier.setCnpj("37213813000170");
+
+        Set<ConstraintViolation<Supplier>> constraints = validator.validate(supplier);
+
+        assertFalse(constraints.isEmpty());
+
+        ConstraintViolation<Supplier> constraint = constraints.iterator().next();
+
+        assertEquals(
+                "com.neostore.api.model.Supplier",
+                constraint.getLeafBean().getClass().getName());
+
+        assertEquals(
+                "email",
+                constraint.getPropertyPath().toString());
+
+        assertEquals(
+                "E-mail não pode ser nulo",
+                constraint.getMessage());
+    }
+
+    @Test()
+    public void testInvalidSupplierEmail() {
+        Supplier supplier = new Supplier();
+        supplier.setName("Example Supplier");
+        supplier.setEmail("exampleexample.com");
+        supplier.setCnpj("37213813000170");
+
+        Set<ConstraintViolation<Supplier>> constraints = validator.validate(supplier);
+
+        assertFalse(constraints.isEmpty());
+
+        ConstraintViolation<Supplier> constraint = constraints.iterator().next();
+
+        assertEquals(
+                "com.neostore.api.model.Supplier",
+                constraint.getLeafBean().getClass().getName());
+
+        assertEquals(
+                "email",
+                constraint.getPropertyPath().toString());
+
+        assertEquals(
+                "Informe um e-mail válido",
                 constraint.getMessage());
     }
 }
