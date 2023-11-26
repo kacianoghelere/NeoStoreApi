@@ -25,3 +25,6 @@ Abaixo segue uma breve relação dos endpoints, verbos HTTP e suas funções:
 - **POST** `/api/suppliers/import`: Cria novos fornecedores a partir de lista em formato .json recebida;
 - **PUT** `/api/suppliers/{id}`: Atualiza um fornecedor específico a partir de seu id;
 - **DELETE** `/api/suppliers/{id}`: Remove um fornecedor específico a partir de seu id;
+
+## Repositório da aplicação web
+https://github.com/kacianoghelere/NeoStoreFront
