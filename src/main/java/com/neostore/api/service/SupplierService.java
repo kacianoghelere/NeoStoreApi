@@ -39,7 +39,7 @@ public class SupplierService implements CrudService<Supplier> {
         List<Supplier> suppliers = new ArrayList<Supplier>();
 
         suppliersData.forEach((data) -> {
-            suppliers.add(repository.create(buildFromDto(data)));
+            suppliers.add(create(buildFromDto(data)));
         });
 
         return suppliers;

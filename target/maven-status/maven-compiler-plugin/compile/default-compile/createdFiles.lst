@@ -1,5 +1,4 @@
 com/neostore/api/resource/GreetingResource.class
-com/neostore/api/validation/SupplierValidator.class
 com/neostore/api/resource/SupplierResource.class
 com/neostore/api/filter/CorsFilter.class
 com/neostore/api/repo/Repository.class

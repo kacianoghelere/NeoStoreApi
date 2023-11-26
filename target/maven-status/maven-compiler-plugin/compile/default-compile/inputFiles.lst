@@ -17,6 +17,5 @@
 /home/kaciano/NetBeansProjects/NeoStoreApi/src/main/java/com/neostore/api/exception/InvalidDataException.java
 /home/kaciano/NetBeansProjects/NeoStoreApi/src/main/java/com/neostore/api/repo/Repository.java
 /home/kaciano/NetBeansProjects/NeoStoreApi/src/main/java/com/neostore/api/config/ApplicationConfig.java
-/home/kaciano/NetBeansProjects/NeoStoreApi/src/main/java/com/neostore/api/validation/SupplierValidator.java
 /home/kaciano/NetBeansProjects/NeoStoreApi/src/main/java/com/neostore/api/service/CrudService.java
 /home/kaciano/NetBeansProjects/NeoStoreApi/src/main/java/com/neostore/api/exception/mapper/TransactionalExceptionMapper.java
